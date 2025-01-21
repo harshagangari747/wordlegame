@@ -1,5 +1,15 @@
 export default function Row({ id, editable, rowBackground }) {
   let inputClass = "inputBox";
+
+  function handleNextFocusInput(event) {
+    let row = parseInt(event.target.id[0]);
+    let col = parseInt(event.target.id[1]) + 1;
+    console.log(row, col);
+    if (col < 5) {
+      let inputTag = document.getElementById(row + "" + col);
+      inputTag.focus();
+    }
+  }
   function getRow() {
     const singleRow = [];
     for (let i = 0; i < 5; i++) {
@@ -11,6 +21,7 @@ export default function Row({ id, editable, rowBackground }) {
           maxLength={1}
           disabled={!editable}
           className={inputClass + " " + rowBackground[i]}
+          onChange={handleNextFocusInput}
         />
       );
     }
