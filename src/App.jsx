@@ -24,7 +24,6 @@ export default function App() {
     if (word == "") {
       const randomWord = getWord();
       setWord(randomWord);
-      console.log(randomWord);
     }
   }, [word]);
   //=====
