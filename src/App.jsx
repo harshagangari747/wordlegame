@@ -3,6 +3,7 @@ import GameLayout from "./GameLayout";
 import { useState, useEffect } from "react";
 import GuessButton from "./GuessButton";
 import getWord from "./GetRandomWord";
+import Legend from "./Legend";
 
 export default function App() {
   const [word, setWord] = useState("");
@@ -23,6 +24,7 @@ export default function App() {
     if (word == "") {
       const randomWord = getWord();
       setWord(randomWord);
+      console.log(randomWord);
     }
   }, [word]);
   //=====
@@ -81,24 +83,40 @@ export default function App() {
   }
 
   return (
-    <div className="App">
-      <h2>Guess the word</h2>
-      <h3>
-        {isCorrect
-          ? "You got it: " + word
-          : rowEditable > 5 && "The word is:" + word}
-      </h3>
-      <GameLayout
-        rowEditable={rowEditable}
-        activeRow={rowEditable}
-        rowBackGround={rowBackgroundState}
-      />
-      <div>
-        <GuessButton onClick={handleGuessWordValidation} name="Guess" />
-        {(isCorrect || rowEditable > 5) && (
-          <GuessButton onClick={handleNewGameReset} name="Reset" />
-        )}
+    <>
+      <div className="app">
+        <div className="legend">
+          <Legend />
+        </div>
+        <div className="game">
+          <p>
+            Rotate your screen if you are using mobile phone for better
+            experience
+          </p>
+          <h2>Guess the word</h2>
+          <h3>
+            {isCorrect
+              ? "You got it: " + word
+              : rowEditable > 5 && "The word is:" + word}
+          </h3>
+          <GameLayout
+            rowEditable={rowEditable}
+            activeRow={rowEditable}
+            rowBackGround={rowBackgroundState}
+          />
+          <div>
+            <GuessButton onClick={handleGuessWordValidation} name="Guess" />
+            {(isCorrect || rowEditable > 5) && (
+              <GuessButton onClick={handleNewGameReset} name="Reset" />
+            )}
+          </div>
+        </div>
       </div>
-    </div>
+      <div>
+        <footer>
+          Developed By: <b>Sai Harsha Gangari</b> using pure ReactJs
+        </footer>
+      </div>
+    </>
   );
 }

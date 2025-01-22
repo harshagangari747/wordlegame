@@ -1,8 +1,8 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  margin: 0;
   padding: 2rem;
   text-align: center;
+  width: 100%;
 }
 
 .logo {
@@ -16,21 +16,6 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
 }
 
 .card {
@@ -49,7 +34,10 @@
   font-weight: bolder;
   text-transform: uppercase;
 }
-
+.app {
+  display: flex block;
+  justify-content: space-around;
+}
 .green {
   background-color: greenyellow;
 }
@@ -64,4 +52,27 @@
 
 .red {
   background-color: pink;
+}
+
+td {
+  text-align: left;
+}
+
+.table {
+  display: inline-block;
+
+  margin: 0;
+}
+
+.legend {
+  justify-content: flex-start;
+  float: left;
+  align-content: start;
+  margin-top: 1rem;
+  max-width: 45%;
+}
+
+.game {
+  justify-content: flex-end;
+  float: left;
 }
