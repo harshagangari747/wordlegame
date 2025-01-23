@@ -3,13 +3,16 @@ export default function Row({ id, editable, rowBackground }) {
 
   function handleNextFocusInput(event) {
     let row = parseInt(event.target.id[0]);
-    let col = parseInt(event.target.id[1]) + 1;
-    console.log(row, col);
+    let col = parseInt(event.target.id[1]);
     if (col < 5) {
       let inputTag = document.getElementById(row + "" + col);
-      inputTag.focus();
+      if (inputTag.value !== "") {
+        let nextInputTag = document.getElementById(row + "" + (col + 1));
+        nextInputTag.focus();
+      }
     }
   }
+
   function getRow() {
     const singleRow = [];
     for (let i = 0; i < 5; i++) {
@@ -24,7 +27,7 @@ export default function Row({ id, editable, rowBackground }) {
             inputClass +
             " " +
             (rowBackground[i] ? rowBackground[i] : "") +
-            " border-1 w-20 h-20 sm:w-18 sm:h-18 md:w-17 md:h-17 lg:w-25 lg:h-25"
+            " border-1 w-20 h-20 sm:w-18 sm:h-18 md:w-17 md:h-17 lg:w-24 lg:h-24"
           }
           onChange={handleNextFocusInput}
         />

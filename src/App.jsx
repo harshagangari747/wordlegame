@@ -50,7 +50,13 @@ export default function App() {
     let currActiveRow = rowEditable;
     let userWord = "";
     for (let i = 0; i < 5; i++) {
-      userWord += document.getElementById(currActiveRow + "" + i).value;
+      let letter = document.getElementById(currActiveRow + "" + i).value;
+      if (!letter || letter === "") {
+        alert("Please enter the complete word");
+        return;
+      } else {
+        userWord += letter;
+      }
     }
     let backgrounds = validateWord(userWord);
     if (backgrounds === true) {
@@ -84,7 +90,7 @@ export default function App() {
   return (
     <>
       <div className="app">
-        <div className="legend md:col-start-1 row-start-1 w-auto md:max-w-md">
+        <div className="legend md:col-start-1 row-start-1 w-auto md:max-w-210 max-w-100 lg:max-w-220">
           <Legend />
         </div>
         <div className="game md:col-start-2 row-start-0 w-auto">
