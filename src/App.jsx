@@ -84,15 +84,11 @@ export default function App() {
   return (
     <>
       <div className="app">
-        <div className="legend">
+        <div className="legend md:col-start-1 row-start-1 w-auto md:max-w-md">
           <Legend />
         </div>
-        <div className="game">
-          <p>
-            Rotate your screen if you are using mobile phone for better
-            experience
-          </p>
-          <h2>Guess the word</h2>
+        <div className="game md:col-start-2 row-start-0 w-auto">
+          <h2 className="text-2xl text-black font-semibold">Guess the word</h2>
           <h3>
             {isCorrect
               ? "You got it: " + word

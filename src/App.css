@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 #root {
   margin: 0;
   padding: 2rem;
@@ -27,15 +29,13 @@
 }
 
 .inputBox {
-  height: 80px;
-  width: 90px;
   text-align: center;
   font-size: xx-large;
   font-weight: bolder;
   text-transform: uppercase;
 }
 .app {
-  display: flex block;
+  display: grid block;
   justify-content: space-around;
 }
 .green {
@@ -60,19 +60,15 @@ td {
 
 .table {
   display: inline-block;
-
   margin: 0;
 }
 
 .legend {
-  justify-content: flex-start;
   float: left;
   align-content: start;
   margin-top: 1rem;
-  max-width: 45%;
 }
 
 .game {
-  justify-content: flex-end;
   float: left;
 }
